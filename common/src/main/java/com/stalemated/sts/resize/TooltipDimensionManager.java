@@ -95,12 +95,12 @@ public class TooltipDimensionManager {
         List<TooltipComponent> scrollableContentRaw = components.subList(splitIndex, components.size());
         List<TooltipComponent> scrollableContent = scrollableContentRaw;
 
-        processedTitleComponentList = pinned;
-        bodyComponentList = scrollableContent;
+        processedTitleComponentList = new ArrayList<>(pinned);
+        bodyComponentList = new ArrayList<>(scrollableContent);
 
         if (currentTextRenderer != null) {
             pinned = TitleOverflowStrategyFactory.getStrategy().processComponentPhase(pinned, currentTextRenderer, titleMaxWidth);
-            processedTitleComponentList = pinned;
+            processedTitleComponentList = new ArrayList<>(pinned);
             // Two-pass approach: not discounting the scrollbar's width
             scrollableContent = TooltipWrapUtil.wrapComponents(scrollableContentRaw, scaledTooltipWidth, currentTextRenderer, false);
         }
@@ -160,8 +160,8 @@ public class TooltipDimensionManager {
         currentContext = null;
         currentTextRenderer = null;
         TooltipContextManager.clear();
-        processedTitleComponentList.clear();
-        bodyComponentList.clear();
+        processedTitleComponentList = new ArrayList<>();
+        bodyComponentList = new ArrayList<>();
     }
 
     public static int getScaledTooltipHeight() {
