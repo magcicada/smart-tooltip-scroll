@@ -23,6 +23,13 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
+      - name: Build S-Lib
+        run: |
+          git clone https://github.com/Stalemated/s-lib.git
+          cd s-lib
+          chmod +x gradlew
+          ./gradlew publishToMavenLocal
+
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
 
