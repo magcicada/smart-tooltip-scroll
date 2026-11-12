@@ -31,7 +31,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
 
     // S-Lib common code
-    modImplementation("com.stalemated.lib:s-lib-fabric:${rootProject.s_lib_version}")
+    modImplementation("maven.modrinth:s-lib:${rootProject.s_lib_version}-fabric")
 
     // YACL
     modImplementation "dev.isxander:yet-another-config-lib:${rootProject.yacl_version}-fabric"

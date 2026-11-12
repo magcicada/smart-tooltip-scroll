@@ -38,7 +38,7 @@ dependencies {
     forge "net.minecraftforge:forge:$rootProject.forge_version"
 
     // S-Lib common code
-    modImplementation("com.stalemated.lib:s-lib-forge:${rootProject.s_lib_version}")
+    modImplementation("maven.modrinth:s-lib:${rootProject.s_lib_version}-forge")
 
     // YACL
     modImplementation "dev.isxander:yet-another-config-lib:${rootProject.yacl_version}-forge"

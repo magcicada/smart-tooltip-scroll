@@ -42,7 +42,7 @@ public abstract class DrawContextMixin {
             TooltipContext ctx = TooltipContextManager.peek();
 
             boolean isItem = ctx != null;
-            boolean isForced = SharedTooltipState.forceCustomDimensions;
+            boolean isForced = SharedTooltipState.isCustomDimensionsRequested();
 
             if (isItem || isForced) {
                 return TooltipDimensionManager.enforceHeightLimit(components, ctx);
@@ -56,7 +56,7 @@ public abstract class DrawContextMixin {
         if (ConfigManager.getConfig().custom_tooltip_dimensions) {
             TooltipDimensionManager.clearState();
             TooltipContextManager.pop();
-            SharedTooltipState.forceCustomDimensions = false;
+            SharedTooltipState.clearCustomDimensionsRequest();
         }
     }
 }

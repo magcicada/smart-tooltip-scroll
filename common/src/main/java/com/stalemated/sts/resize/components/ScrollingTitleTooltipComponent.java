@@ -12,8 +12,10 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.text.OrderedText;
 import org.joml.Matrix4f;
 import com.stalemated.lib.util.math.ScrollMathUtil;
+import com.stalemated.lib.util.math.ScrollClock;
 
 public class ScrollingTitleTooltipComponent extends OrderedTextTooltipComponent implements TooltipComponent, StsManagedTitle {
+    private static final ScrollClock TITLE_CLOCK = new ScrollClock();
     private final OrderedText text;
     private final int maxTitleWidth;
 
@@ -52,7 +54,7 @@ public class ScrollingTitleTooltipComponent extends OrderedTextTooltipComponent 
         int offset = getOffset();
         int overflowWidth = textWidth - this.maxTitleWidth;
         int identity = OrderedTextUtil.getStringFromOrderedText(this.text).hashCode();
-        long elapsedTime = ScrollMathUtil.getTooltipElapsedTime(identity);
+        long elapsedTime = TITLE_CLOCK.elapsedMillis(identity);
         int scrollOffset = ScrollMathUtil.calculateScrollOffset(overflowWidth, ConfigManager.getConfig().title_scroll_speed, ConfigManager.getConfig().title_scroll_pause_time_ms, elapsedTime);
         int startX = x;
         if (!TooltipDimensionManager.handlesModelOffsetNatively()) startX += offset;

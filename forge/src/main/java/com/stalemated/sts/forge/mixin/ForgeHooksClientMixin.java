@@ -34,7 +34,7 @@ public class ForgeHooksClientMixin {
         }
 
         boolean isItem = (stack != null && !stack.isEmpty()) || TooltipContextManager.peek() != null;
-        boolean isForced = SharedTooltipState.forceCustomDimensions;
+        boolean isForced = SharedTooltipState.isCustomDimensionsRequested();
 
         sts$isCustomActive = isItem || isForced;
     }

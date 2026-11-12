@@ -3,7 +3,7 @@ package com.stalemated.sts.keybind;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
-import com.stalemated.lib.helper.PlatformHelper;
+import com.stalemated.lib.client.ClientPlatformHelper;
 
 public class StsKeybinds {
     public static final KeyBinding SCROLL_BYPASS_KEY = new KeyBinding(
@@ -14,6 +14,6 @@ public class StsKeybinds {
     );
 
     public static void register() {
-        PlatformHelper.INSTANCE.registerKeyBinding(SCROLL_BYPASS_KEY);
+        ClientPlatformHelper.registerKeyBinding(SCROLL_BYPASS_KEY);
     }
 }

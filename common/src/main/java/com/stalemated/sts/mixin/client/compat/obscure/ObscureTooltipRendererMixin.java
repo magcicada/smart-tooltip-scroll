@@ -71,7 +71,7 @@ public abstract class ObscureTooltipRendererMixin {
         if (ObscureTooltipsCompat.isCompatActive() && cir.getReturnValueZ()) {
             TooltipDimensionManager.clearState();
             TooltipContextManager.pop();
-            SharedTooltipState.forceCustomDimensions = false;
+            SharedTooltipState.clearCustomDimensionsRequest();
         }
     }
 }

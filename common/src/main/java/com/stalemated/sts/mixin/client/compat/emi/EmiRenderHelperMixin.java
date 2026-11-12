@@ -32,14 +32,14 @@ public class EmiRenderHelperMixin {
             at = @At(value = "INVOKE", target = "Ldev/emi/emi/mixin/accessor/DrawContextAccessor;invokeDrawTooltip(Lnet/minecraft/client/font/TextRenderer;Ljava/util/List;IILnet/minecraft/client/gui/tooltip/TooltipPositioner;)V"))
     private static void sts$beforeDrawTooltip(Screen screen, EmiDrawContext context, List<TooltipComponent> components, int x, int y, int maxWidth, TooltipPositioner positioner, CallbackInfo ci) {
         if (ConfigManager.getConfig().custom_tooltip_dimensions) {
-            SharedTooltipState.forceCustomDimensions = true;
+            SharedTooltipState.requestCustomDimensions();
         }
     }
 
     @Inject(method = "drawTooltip(Lnet/minecraft/client/gui/screen/Screen;Ldev/emi/emi/runtime/EmiDrawContext;Ljava/util/List;IIILnet/minecraft/client/gui/tooltip/TooltipPositioner;)V",
             at = @At(value = "INVOKE", target = "Ldev/emi/emi/mixin/accessor/DrawContextAccessor;invokeDrawTooltip(Lnet/minecraft/client/font/TextRenderer;Ljava/util/List;IILnet/minecraft/client/gui/tooltip/TooltipPositioner;)V", shift = At.Shift.AFTER))
     private static void sts$afterDrawTooltip(Screen screen, EmiDrawContext context, List<TooltipComponent> components, int x, int y, int maxWidth, TooltipPositioner positioner, CallbackInfo ci) {
-        SharedTooltipState.forceCustomDimensions = false;
+        SharedTooltipState.clearCustomDimensionsRequest();
     }
 }
 

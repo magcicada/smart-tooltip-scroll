@@ -37,7 +37,7 @@ public class TooltipOverhaulCompat implements ExternalScrollStateResetter {
         TooltipContext stsCtx = TooltipContextManager.peek();
 
         boolean isItem = stsCtx != null || !stack.isEmpty();
-        boolean isForced = SharedTooltipState.forceCustomDimensions;
+        boolean isForced = SharedTooltipState.isCustomDimensionsRequested();
 
         if (isItem || isForced) {
             TooltipOverhaulStateManager.setContext(context);

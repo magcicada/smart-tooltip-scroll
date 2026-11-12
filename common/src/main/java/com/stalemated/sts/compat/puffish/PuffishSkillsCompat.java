@@ -16,7 +16,7 @@ public class PuffishSkillsCompat {
 
     public static List<OrderedText> wrapLines(MinecraftClient client, Text text) {
         if (isSkillTooltipContext && ConfigManager.getConfig().custom_tooltip_dimensions && client.textRenderer != null) {
-            SharedTooltipState.forceCustomDimensions = true;
+            SharedTooltipState.requestCustomDimensions();
             int targetWidth = TooltipDimensionManager.getScaledTooltipWidth();
             return client.textRenderer.wrapLines(text, targetWidth);
         }

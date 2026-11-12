@@ -48,7 +48,7 @@ public class TooltipOverhaulStateManager {
 
         TooltipDimensionManager.clearState();
         TooltipContextManager.pop();
-        SharedTooltipState.forceCustomDimensions = false;
+        SharedTooltipState.clearCustomDimensionsRequest();
         stsActiveForCurrentTooltip = false;
         currentTOContext = null;
     }

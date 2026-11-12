@@ -1,6 +1,6 @@
 package com.stalemated.sts.gui.screen;
 
-import com.stalemated.lib.compat.yacl.controller.builder.SimpleEnumDropdownControllerBuilder;
+import com.stalemated.lib.compat.yacl.controller.builder.SelectDropdownControllerBuilder;
 import com.stalemated.sts.config.ConfigManager;
 import com.stalemated.sts.config.STSConfig;
 import com.stalemated.sts.scroll.easing.ScrollEasingStyle;
@@ -120,7 +120,7 @@ public class TooltipDimensionsScreen {
                 .binding(
                         defaultValue,
                         () -> getter.apply(ConfigManager.getConfig()),
-                        val -> ConfigManager.MANAGER.updateOption(configKey, val)
+                        val -> ConfigManager.updateOption(configKey, val)
                 )
                 .controller(TickBoxControllerBuilder::create)
                 .build();
@@ -133,7 +133,7 @@ public class TooltipDimensionsScreen {
                 .binding(
                         defaultValue,
                         () -> getter.apply(ConfigManager.getConfig()),
-                        val -> ConfigManager.MANAGER.updateOption(configKey, val)
+                        val -> ConfigManager.updateOption(configKey, val)
                 )
                 .controller(opt -> IntegerSliderControllerBuilder.create(opt).range(min, max).step(step))
                 .build();
@@ -146,7 +146,7 @@ public class TooltipDimensionsScreen {
                 .binding(
                         defaultValue,
                         () -> getter.apply(ConfigManager.getConfig()),
-                        val -> ConfigManager.MANAGER.updateOption(configKey, val)
+                        val -> ConfigManager.updateOption(configKey, val)
                 )
                 .controller(opt -> {
                     FloatSliderControllerBuilder builder = FloatSliderControllerBuilder.create(opt).range(min, max).step(step);
@@ -163,7 +163,7 @@ public class TooltipDimensionsScreen {
                 .binding(
                         defaultValue,
                         () -> getter.apply(ConfigManager.getConfig()),
-                        val -> ConfigManager.MANAGER.updateOption(configKey, val)
+                        val -> ConfigManager.updateOption(configKey, val)
                 )
                 .controller(opt -> {
                     DoubleSliderControllerBuilder builder = DoubleSliderControllerBuilder.create(opt).range(min, max).step(step);
@@ -180,9 +180,9 @@ public class TooltipDimensionsScreen {
                 .binding(
                         defaultValue,
                         () -> getter.apply(ConfigManager.getConfig()),
-                        val -> ConfigManager.MANAGER.updateOption(configKey, val)
+                        val -> ConfigManager.updateOption(configKey, val)
                 )
-                .controller(opt -> SimpleEnumDropdownControllerBuilder.create(opt).formatValue(formatter))
+                .controller(opt -> SelectDropdownControllerBuilder.createEnum(opt).formatValue(formatter))
                 .build();
     }
 }

@@ -21,25 +21,25 @@ public class SmartTooltipScrollMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.contains("compat.iceberg")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("iceberg");
+            return PlatformHelper.isModLoadedAtLaunch("iceberg");
         }
         if (mixinClassName.contains("compat.emi")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("emi");
+            return PlatformHelper.isModLoadedAtLaunch("emi");
         }
         if (mixinClassName.contains("compat.puffish")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("puffish_skills");
+            return PlatformHelper.isModLoadedAtLaunch("puffish_skills");
         }
         if (mixinClassName.contains("compat.tierify")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("tiered");
+            return PlatformHelper.isModLoadedAtLaunch("tiered");
         }
         if (mixinClassName.contains("compat.obscure")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("obscure_tooltips");
+            return PlatformHelper.isModLoadedAtLaunch("obscure_tooltips");
         }
         if (mixinClassName.contains("compat.spellengine")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("spell_engine");
+            return PlatformHelper.isModLoadedAtLaunch("spell_engine");
         }
         if (mixinClassName.contains("compat.tooltipoverhaul")) {
-            return PlatformHelper.INSTANCE.isModLoadedAtLaunch("tooltipoverhaul");
+            return PlatformHelper.isModLoadedAtLaunch("tooltipoverhaul");
         }
         return true;
     }

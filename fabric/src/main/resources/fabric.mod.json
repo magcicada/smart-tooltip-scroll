@@ -31,7 +31,7 @@
     "minecraft": "~1.20.1",
     "java": ">=17",
     "fabric-api": "*",
-    "s_lib": ">=3.0.1+1.20.1"
+    "s_lib": ">=4.0.0 <5.0.0"
   },
   "suggests": {
     "modmenu": "*",

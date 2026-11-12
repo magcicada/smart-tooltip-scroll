@@ -38,7 +38,7 @@ side = "CLIENT"
 [[dependencies.smart_tooltip_scroll]]
 modId = "s_lib"
 mandatory = true
-versionRange = "[3.0.0,)"
+versionRange = "[4.0.0,5.0.0)"
 ordering = "AFTER"
 side = "CLIENT"
 
